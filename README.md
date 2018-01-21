@@ -9,4 +9,6 @@ I got this to work running:
 - sudo kextcache -invalidate / 
 - sudo nvram boot-args="0x141 pmuflags=1 -v"
 
-May not be the prettiest thing, but it works.
+May not be the prettiest thing, but it works. On the host machine make sure to install the Kernel Development Kit and run: target create $KDK file and then copy the command script and run that too. Last but not least make sure you know the IP of the VM so you can run kdp-remote $IP in time for the NMI script to trigger the catch.
+
+Usual caveats apply about what will and will not work debugger interaction-wise.
