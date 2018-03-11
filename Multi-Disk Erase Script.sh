@@ -23,18 +23,18 @@ do
 	then
 		for i in ${DISK[@]}
 		do
-			# Define Drive Name
+			# Define the job
+			( # Define Drive Name
 			newName=$(diskutil info $i | grep "Part of Whole" | awk '{print $4}')
 			# Secure Wipe
 			echo "Secure Erasing Disk"
 			# If you change the 4 to a different value found in the diskutil man page you can change the wipe procedure.
-			diskutil secureErase 4 $i &
-			wait
+			diskutil secureErase 4 $i
 			# Formatting For Use
 			echo "Re-Partitioning Disk"
-			diskutil eraseDisk JHFS+ $newName $i &
-			wait
+			diskutil eraseDisk JHFS+ $newName $i ) &
 		done
+		wait
 	fi
 done
 
