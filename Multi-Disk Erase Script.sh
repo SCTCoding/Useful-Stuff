@@ -1,14 +1,5 @@
 #! /bin/bash
 
-# Disk Name Function
-#newName=$(diskutil info $DISK | grep "Part of Whole" | awk '{print $4}')
-
-# Secure Erasure
-#diskutil secureErase 4 $DISK
-
-# Format
-#diskutil eraseDisk JHFS+ $newName $DISK
-
 # Initial Variables
 fnsh="N"
 DISK=()
@@ -36,6 +27,7 @@ do
 			newName=$(diskutil info $i | grep "Part of Whole" | awk '{print $4}')
 			# Secure Wipe
 			echo "Secure Erasing Disk"
+			# If you change the 4 to a different value found in the diskutil man page you can change the wipe procedure.
 			diskutil secureErase 4 $i &
 			wait
 			# Formatting For Use
