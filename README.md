@@ -12,3 +12,6 @@ I got this to work running:
 May not be the prettiest thing, but it works. On the host machine make sure to install the Kernel Development Kit and run: target create $KDK file and then copy the command script and run that too. Last but not least make sure you know the IP of the VM so you can run kdp-remote $IP in time for the NMI script to trigger the catch.
 
 Usual caveats apply about what will and will not work debugger interaction-wise.
+
+## Multi-Disk Erase Script.sh
+This is just a quick script for erasing multiple drives on a Mac quickly. Default is 3 pass-wipe. This can be made more interactive. I just tossed it together because I needed it. Feel free to improve.
