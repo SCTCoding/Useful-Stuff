@@ -1,17 +1,27 @@
 #! /bin/bash
 
 # Initial Variables
-fnsh="N"
+marker="N"
 DISK=()
 
+# Erase Levels
+echo "SECURE ERASE LEVELS"
+echo "0 - Zero Disk"
+echo "1 - Random Fill"
+echo "2 - 7-Pass Wipe"
+echo "3 - 35-Pass Wipe"
+echo "4 - 3-Pass Wipe"
+echo ""
+read -p "What erase level do you want? " level
+
 # Primary While Loop
-while [ $fnsh != "Y"  ]
+while [ $marker != "Y"  ]
 do
 	# Read in disk ID
-	read -p "Specify Disk (/dev/disk#): " val
+	read -p "Specify Disk (disk#): " val
 	echo $val
 	# Add the space in the lamest way possible
-	fixedval=$(echo "$val ")
+	fixedval=$(echo "/dev/$val ")
 	# Append value to array
 	DISK+=$fixedval
 	# Ask if you're done with specifying disks
@@ -19,7 +29,7 @@ do
 	# Outputs the array for viewing and waits to give an opportunity to cancel
 	echo $DISK
 	sleep 2
-	if [ $fnsh == "Y" ]
+	if [ $marker == "Y" ]
 	then
 		for i in ${DISK[@]}
 		do
@@ -29,7 +39,7 @@ do
 			# Secure Wipe
 			echo "Secure Erasing Disk"
 			# If you change the 4 to a different value found in the diskutil man page you can change the wipe procedure.
-			diskutil secureErase 4 $i
+			diskutil secureErase $level $i
 			# Formatting For Use
 			echo "Re-Partitioning Disk"
 			diskutil eraseDisk JHFS+ $newName $i ) &
