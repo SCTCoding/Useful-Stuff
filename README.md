@@ -15,3 +15,6 @@ Usual caveats apply about what will and will not work debugger interaction-wise.
 
 ## Multi-Disk Erase Script.sh
 This is just a quick script for erasing multiple drives on a Mac quickly. Default is 3 pass-wipe. This can be made more interactive. I just tossed it together because I needed it. Feel free to improve.
+
+## Disable Config Profile.sh
+This is just a simple script for disable configuration profiles without a reboot. This is non-destructive. Useful for testing and other shennanigans.
