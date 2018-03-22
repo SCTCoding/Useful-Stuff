@@ -8,3 +8,5 @@ perl -i -pe 's/(?<=pendingNMI\x00{4})\x00/\x01/' *.vmss
 
 # Credit
 # https://cloudtone.wordpress.com/2012/12/13/vmware-fusion-can-you-diag-it-nmi/
+
+# I have simply modernized this with current syntax for VMWare. The actual interaction and innovation is not mine.
