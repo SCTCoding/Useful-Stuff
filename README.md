@@ -18,3 +18,6 @@ This is just a quick script for erasing multiple drives on a Mac quickly. Defaul
 
 ## Disable Config Profile.sh
 This is just a simple script for disable configuration profiles without a reboot. This is non-destructive. Useful for testing and other shennanigans.
+
+## LocalItems-Keychain-Solver.sh
+This is a simple script for dealing with local items keychain issues encountered in certain environments. The dreaded local items keychain popup that causes frustration and irritation.
