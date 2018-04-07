@@ -67,6 +67,8 @@ if lsof | grep keychain-2.db | grep -Eq 'secd|trustd'
 
 		launchctl start com.apple.secd
 		launchctl start com.apple.trustd.agent
+		
+		rm -R /tmp/lkcbackup
 fi
 
 exit
