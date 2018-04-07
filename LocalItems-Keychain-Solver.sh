@@ -10,6 +10,8 @@ if [ -d "/Users/$USER/Library/Keychains/$localkc" ]
 			then
 				spid=$(ps -Ac | grep "Safari" | awk '{print $1}')
 				kill $spid
+			else
+				result="false"
 		fi
 
 		# Make a backup of their stuff
@@ -58,6 +60,12 @@ launchctl start com.apple.trustd.agent
 if lsof | grep keychain-2.db | grep -Eq 'secd|trustd'
 	then
 		rm -R /tmp/lkcbackup
+		
+		if [ $result == "false" ]
+			then
+				nspid=$(ps -Ac | grep "Safari" | awk '{print $1}')
+				kill $nspid
+		fi
 	else
 		# Launchctl Restart
 		launchctl stop com.apple.secd
@@ -69,6 +77,12 @@ if lsof | grep keychain-2.db | grep -Eq 'secd|trustd'
 		launchctl start com.apple.trustd.agent
 		
 		rm -R /tmp/lkcbackup
+		
+		if [ $result == "false" ]
+			then
+				nspid=$(ps -Ac | grep "Safari" | awk '{print $1}')
+				kill $nspid
+		fi
 fi
 
 exit
