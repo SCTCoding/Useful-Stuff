@@ -1,21 +1,27 @@
 #! /bin/sh
 
-# Check for Safari
-if ps -Ac | grep "Safari"
-	then
-		spid=$(ps -Ac | grep "Safari" | awk '{print $1}')
-		kill $spid
-fi
-
-# Identify Keychain Folder
+# Initial folder identification and get started logic
 localkc=$(ls /Users/$USER/Library/Keychains/ | head -n 1)
 
-# Make a backup of their stuff
-mkdir /tmp/lkcbackup
-cp /Users/$USER/Library/Keychains/$localkc/keychain* /tmp/lkcbackup/
+if [ -d "/Users/$USER/Library/Keychains/$localkc" ]
+	then
+		# Check for Safari
+		if ps -Ac | grep "Safari"
+			then
+				spid=$(ps -Ac | grep "Safari" | awk '{print $1}')
+				kill $spid
+		fi
 
-# Destroy the folder.
-rm -R /Users/$USER/Library/Keychains/$localkc
+		# Make a backup of their stuff
+		mkdir /tmp/lkcbackup
+		cp /Users/$USER/Library/Keychains/$localkc/keychain* /tmp/lkcbackup/
+
+		# Destroy the folder.
+		rm -R /Users/$USER/Library/Keychains/$localkc
+
+	else
+		exit
+fi
 
 # Wait for the OS
 sleep 5
