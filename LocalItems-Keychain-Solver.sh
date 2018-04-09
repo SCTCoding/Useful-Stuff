@@ -4,7 +4,8 @@
 localkc=$(ls /Users/$USER/Library/Keychains/ | head -n 1)
 
 # Determine if the folder already exists.
-if [ -d "/Users/$USER/Library/Keychains/$localkc" ]
+# if [ -d "/Users/$USER/Library/Keychains/$localkc" ]
+if [ -f "/Users/$USER/Library/Keychains/$localkc/keychain-2.db" ]
 	then
 		# If the the local items keychain folder exists look for Safari
 		if ps -Ac | grep "Safari"
