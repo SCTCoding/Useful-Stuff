@@ -1,7 +1,8 @@
 #! /bin/sh
 
 # Identify the name of the local items keychain folder.
-localkc=$(ls /Users/$USER/Library/Keychains/ | head -n 1)
+# localkc=$(ls /Users/$USER/Library/Keychains/ | head -n 1)
+localkc=$(system_profiler SPHardwareDataType | grep "Hardware UUID" | awk '{print $3}')
 
 # Determine if the folder already exists.
 # if [ -d "/Users/$USER/Library/Keychains/$localkc" ]
