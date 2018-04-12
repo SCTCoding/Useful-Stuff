@@ -4,6 +4,9 @@
 # localkc=$(ls /Users/$USER/Library/Keychains/ | head -n 1)
 localkc=$(system_profiler SPHardwareDataType | grep "Hardware UUID" | awk '{print $3}')
 
+echo "Determined the name of the local items keychain folder."
+echo "..."
+
 # Determine if the folder already exists.
 # if [ -d "/Users/$USER/Library/Keychains/$localkc" ]
 if [ -f "/Users/$USER/Library/Keychains/$localkc/keychain-2.db" ]
@@ -11,13 +14,16 @@ if [ -f "/Users/$USER/Library/Keychains/$localkc/keychain-2.db" ]
 		# If the the local items keychain folder exists look for Safari
 		if ps -Ac | grep "Safari"
 			then
-				# Find Safaris PID
-				spid=$(ps -Ac | grep "Safari" | awk '{print $1}')
-				# Kill Safari by PID
-				kill $spid
+				# If not then find Safari by PID and kill it.
+				osascript -e 'tell application "Safari" to quit'
+				result=1
+				echo "Determined the state of Safari and closed Safari."
+				echo "..."
 			else
 				# If Safari isn't open then we make a note of it.
-				result="false"
+				result=0
+				echo "Safari was not open. Just making a note."
+				echo "..."
 		fi
 
 		# Make a backup of the local items keychain
@@ -34,41 +40,67 @@ if [ -f "/Users/$USER/Library/Keychains/$localkc/keychain-2.db" ]
 		exit
 fi
 
+
+echo "Local items keychain is now backed up."
+echo "..."
+echo "Waiting on the OS."
+echo "..."
 # Wait for the OS
 sleep 5
 
+echo "Stopping services."
+echo "..."
 # Launchctl Restart
 launchctl stop com.apple.secd
 launchctl stop com.apple.trustd.agent
 
+echo "Wating on the OS again."
+echo "..."
 # Wait for the OS
 sleep 2
-		
+
+echo "Starting the services up again."
+echo "..."		
 launchctl start com.apple.secd
 launchctl start com.apple.trustd.agent
 
+echo "Activating Safari."
+echo "..."
 # Now open Safari to sync things up.
 osascript -e 'tell application "Safari" to activate'
 
+echo "Wating for the OS again..."
+echo "..."
 # Wait for the OS
 sleep 5
 
+echo "Removing and replacing the local items keychain."
+echo "..."
 # Remove the new keychain automatically created.
 rm /Users/$USER/Library/Keychains/$localkc/keychain*
 
 # Move the orignal keychain back to retain the user's password.
 cp /tmp/lkcbackup/keychain* /Users/$USER/Library/Keychains/$localkc/
 
+
+echo "Restart them services again."
+echo "..."
 # Launchctl Restart again
 launchctl stop com.apple.secd
 launchctl stop com.apple.trustd.agent
 
+echo "More waiting on the os..."
+echo "..."
 # Wait for the OS
 sleep 2
 
+echo "Services are back."
+echo "..."
 launchctl start com.apple.secd
 launchctl start com.apple.trustd.agent
 
+echo "Double-checking our work, and making sure everything is back to the way it should be."
+echo "..."
 # Check if the local items keychain is open by secd and or trustd
 if lsof | grep keychain-2.db | grep -Eq 'secd|trustd'
 	then
@@ -76,11 +108,12 @@ if lsof | grep keychain-2.db | grep -Eq 'secd|trustd'
 		rm -R /tmp/lkcbackup
 
 		# Check if Safari was open.
-		if [ $result="false" ]
+		if [ $result -eq 0 ]
 			then
 				# If not then find Safari by PID and kill it.
-				nspid=$(ps -Ac | grep "Safari" | awk '{print $1}')
-				kill $nspid
+				osascript -e 'tell application "Safari" to quit'
+			else
+				osascript -e 'tell application "Safari" to activate'
 		fi
 
 	else
@@ -97,11 +130,12 @@ if lsof | grep keychain-2.db | grep -Eq 'secd|trustd'
 		rm -R /tmp/lkcbackup
 
 		# Also don't forget to kill Safari if need be.
-		if [ $result="false" ]
+		if [ $result -eq 0 ]
 			then
-				nspid=$(ps -Ac | grep "Safari" | awk '{print $1}')
-				kill $nspid
+				# If not then find Safari by PID and kill it.
+				osascript -e 'tell application "Safari" to quit'
+			else
+				osascript -e 'tell application "Safari" to activate'
 		fi
 fi
-
 exit
