@@ -21,3 +21,6 @@ This is just a simple script for disable configuration profiles without a reboot
 
 ## LocalItems-Keychain-Solver.sh
 This is a simple script for dealing with local items keychain issues encountered in certain environments. The dreaded local items keychain popup that causes frustration and irritation.
+
+## Local_Items_Management.sh
+This is a script used to keep the number of local items keychains from running away in situations where the drive is booting many computers. For example debug/utility drives used by IT professionals.
