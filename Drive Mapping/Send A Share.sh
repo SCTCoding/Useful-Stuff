@@ -11,6 +11,7 @@ for i in ${paths[@]}
 do
 	# UNC Converter
 	unc_slash=$(echo -n $i | sed -e 's/\\/\//g' | cut -c2-100000)
+	# Adjust smb for whatever you are looking for.
 	unc_conv=$(echo -n "smb://$unc_slash")
 	
 	# Add Path
