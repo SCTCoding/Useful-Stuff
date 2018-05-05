@@ -24,3 +24,6 @@ This is a simple script for dealing with local items keychain issues encountered
 
 ## Local_Items_Management.sh
 This is a script used to keep the number of local items keychains from running away in situations where the drive is booting many computers. For example debug/utility drives used by IT professionals.
+
+## Drive Mapping
+These are some basic scripts for mapping shares in OS X. The idea being that one can open the script, and paste the path to have it automatically added to the saved share list. Useful in mixed environments.
