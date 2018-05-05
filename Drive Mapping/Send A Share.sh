@@ -20,3 +20,18 @@ do
 	# Open each
 	open $unc_conv
 done
+
+
+# Define what paths we are going to add
+declare -a paths=(
+  # Paths in quotes
+)
+
+for i in ${paths[@]}
+do	
+	# Add Path
+	/usr/bin/sfltool add-item -n "$i" com.apple.LSSharedFileList.FavoriteServers "$i"
+	
+	# Open each
+	open $i
+done
