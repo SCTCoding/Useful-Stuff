@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Purpose of this script is to provide a user-interactable means of adding save file shares.
+# Purpose of this script is to provide a user-interactable means of adding saved file shares.
 
 
 # Determine what type of connection we are saving.
