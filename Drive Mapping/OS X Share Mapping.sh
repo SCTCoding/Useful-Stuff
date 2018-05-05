@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Purpose of this script is to provide a user-interactable means of adding save file shares.
+
+
 # Determine what type of connection we are saving.
 prefix=`osascript -e 'set choice to (choose from list {"Screen Share", "File Share"} with prompt "Please select which kind of connection you are making:" default items "None" OK button name {"Choose"} cancel button name {"Cancel"})'`
 
