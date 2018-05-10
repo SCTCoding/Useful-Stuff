@@ -27,3 +27,6 @@ This is a script used to keep the number of local items keychains from running a
 
 ## Drive Mapping
 These are some basic scripts for mapping shares in OS X. The idea being that one can open the script, and paste the path to have it automatically added to the saved share list. Useful in mixed environments.
+
+## VirusTotal Results.sh
+Just a fun little script that hashes a file and outputs a VirusTotal results screenshot.
