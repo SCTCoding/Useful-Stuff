@@ -30,3 +30,6 @@ These are some basic scripts for mapping shares in OS X. The idea being that one
 
 ## VirusTotal Results.sh
 Just a fun little script that hashes a file and outputs a VirusTotal results screenshot.
+
+## WindowID.sh
+Just a quick script to get the window ID of open windows in an application.
