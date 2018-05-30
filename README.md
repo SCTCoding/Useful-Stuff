@@ -33,3 +33,6 @@ Just a fun little script that hashes a file and outputs a VirusTotal results scr
 
 ## WindowID.sh
 Just a quick script to get the window ID of open windows in an application.
+
+## Dump Executables.scpt
+This is a script I have been using for disassembly. The basic idea is given a complex application with multiple parts copy the executables to a folder, and then dump their otool depencency list and nm function list. The idea is you can then grep the file for interesting stuff and target your disassembly to the optimal executables.
