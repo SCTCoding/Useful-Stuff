@@ -39,3 +39,6 @@ This is a script I have been using for disassembly. The basic idea is given a co
 
 ## BlindGrab.sh
 This is a copy script to grab ephemeral files and directories that are difficult to catch on the file system. It is a brute force try as fast as possible design.
+
+## Outlook Autodiscover.applescript
+This script allows you to disable or enable background autodiscovery in Microsoft Outlook 2016.
