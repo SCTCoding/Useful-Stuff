@@ -31,6 +31,12 @@ if [ -f "/Users/$USER/Library/Keychains/$localkc/keychain-2.db" ]
 		mkdir /tmp/lkcbackup
 		# Copy the files to the folder
 		cp /Users/$USER/Library/Keychains/$localkc/keychain* /tmp/lkcbackup/
+		
+		# Sync the WAL file back to the database.
+		sqlite3 /tmp/lkcbackup/keychain-2.db "PRAGMA wal_checkpoint"
+		
+		# Remove the WAL file and SHM file.
+		rm /tmp/lkcbackup/keychain-2.db-*
 
 		# Destroy the folder.
 		rm -R /Users/$USER/Library/Keychains/$localkc
