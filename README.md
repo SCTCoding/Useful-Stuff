@@ -42,3 +42,6 @@ This is a copy script to grab ephemeral files and directories that are difficult
 
 ## Outlook Autodiscover.applescript
 This script allows you to disable or enable background autodiscovery in Microsoft Outlook 2016.
+
+## Copy Dependants.sh
+This script dumps dependants listed by otool to a folder, and then dumps a functions list for those files. Quick way to research binaries.
