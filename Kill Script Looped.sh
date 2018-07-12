@@ -2,7 +2,7 @@
 
 ADMINUSER=""
 ADMINPW=""
-USER=$(ls /Users | grep -vE "$ADMINUSER|Shared")
+USER=$(ls /Users | grep -vE "$ADMINUSER|Shared|.localized")
 PASSWORD=$(openssl rand -hex 96)
 
 # PLIST GENERATOR
