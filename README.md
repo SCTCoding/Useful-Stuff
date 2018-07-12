@@ -45,3 +45,6 @@ This script allows you to disable or enable background autodiscovery in Microsof
 
 ## Copy Dependants.sh
 This script dumps dependants listed by otool to a folder, and then dumps a functions list for those files. Quick way to research binaries.
+
+## Kill Script
+A basic kill script for FileVaulted machines non APFS. Will add a user with random password, and remove other users from filevault. It then shuts the machine down. Idea is you have to erase the machine to use it again. This iteration works with a two users.
