@@ -15,7 +15,7 @@ then
 	dscl . -create /Users/$USERNAME UserShell /bin/bash
 	dscl . -create /Users/$USERNAME RealName "$USERNAME"
 	dscl . -create /Users/$USERNAME UniqueID "$ID"
-	dscl . -create /Users/$USERNAME PrimaryGroupID 20
+	dscl . -create /Users/$USERNAME PrimaryGroupID 80
 	dscl . -passwd /Users/$USERNAME $PASSWORD
 	dscl . -append /Groups/admin GroupMembership $USERNAME
 
