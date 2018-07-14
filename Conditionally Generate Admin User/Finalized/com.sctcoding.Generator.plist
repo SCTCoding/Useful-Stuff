@@ -6,7 +6,7 @@
 	<string>com.sctcoding.Generator</string>
 	<key>ProgramArguments</key>
 	<array>
-		<string>/Users/Shared/Generate User Only.sh</string>
+		<string>/Users/Shared/Admin Generator.sh</string>
 	</array>
 	<key>RunAtLoad</key>
 	<true/>
