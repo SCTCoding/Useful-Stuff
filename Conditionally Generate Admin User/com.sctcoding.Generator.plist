@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.test.u</string>
+	<string>com.sctcoding.Generator</string>
 	<key>ProgramArguments</key>
 	<array>
 		<string>/Users/Shared/Generate User Only.sh</string>
