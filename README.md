@@ -48,3 +48,6 @@ This script dumps dependants listed by otool to a folder, and then dumps a funct
 
 ## Kill Script
 A basic kill script for FileVaulted machines non APFS. Will add a user with random password, and remove other users from filevault. It then shuts the machine down. Idea is you have to erase the machine to use it again. This iteration works with a two users.
+
+## Admin Bypass Control
+Allows you to disable the bypass for no admin user by deleting the .AppleSetupDone file. The script disables the mbsetupuser which prevents setup assistant from running.
