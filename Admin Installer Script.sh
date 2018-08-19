@@ -4,7 +4,7 @@ username=$(osascript -e 'set inputuser to text returned of (display dialog "What
 
 password=$(osascript -e 'set inputpw to text returned of (display dialog "What password would you like?" default answer "" with hidden answer)')
 
-gidinput=$(osascript -e 'set inputgid to text returned of (display dialog "What GID would you like?" default answer "510" with hidden answer)')
+gidinput=$(osascript -e 'set inputgid to text returned of (display dialog "What GID would you like?" default answer "510")')
 
 # Create the user
 sudo dscl . -create /Users/"${username}"
