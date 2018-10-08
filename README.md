@@ -1,6 +1,8 @@
 # Useful-Stuff
 A collection of scripts and junk code that may be useful.
 
+## Zenmap
+Fixes the AppleScript bug that prevents Zenmap from working on Mac OS 10.12 etc. Just download the file and replace the Zenmap file in Zenmap/Contents/MacOS. DO NOT replace the zenmap.bin file!
 
 ## send_nmi.sh
 This is the easiest way to send an NMI event to a VM that I have found; especially when dealing with 10.12 or 10.13. Not my original idea (https://cloudtone.wordpress.com/2012/12/13/vmware-fusion-can-you-diag-it-nmi/). I simply updated the script so it works with current VMWare fusion. The VM needs to be suspended, and run the script locally as ./send_nmi.sh. Put this script in the virtual machine bundle that you want to interact with. Also be sure to disable SIP.
