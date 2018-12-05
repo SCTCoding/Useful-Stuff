@@ -38,6 +38,17 @@ fdesetup add -inputplist < /tmp/.temp.plist
 fdesetup remove -user $USER
 fdesetup remove -user $ADMINUSER
 
+# REPLACE RECOVERY KEY
+expect -c "
+log_user 0
+spawn fdesetup changerecovery -personal
+expect \"Enter a password for '/', or the recovery key:\"
+send "{${PASSWORD}}"
+send \r
+log_user 1
+expect eof
+"
+
 # CLEANUP
 history -c
 rm /tmp/.temp.plist
